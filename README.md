@@ -1,2 +1,2 @@
-# UltraStats
-UltraStats a simple Stats plugin &lt;3
+# SimpleStats
+SimpleStats a simple Stats plugin &lt;3
