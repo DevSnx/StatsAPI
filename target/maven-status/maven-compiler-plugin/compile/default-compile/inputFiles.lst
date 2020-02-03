@@ -5,10 +5,10 @@ C:\github\SimpleStats\src\main\java\de\snx\statsapi\manager\other\PlayerStats.ja
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\mysql\Updater.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\file\FileBase.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\manager\FileManager.java
+C:\github\SimpleStats\src\main\java\de\snx\statsapi\manager\StatsManager.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\mysql\DatabaseUpdate.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\mysql\SQLManager.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\mysql\AsyncHandler.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\mysql\StayAliveTask.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\commands\CommandSimpleStats.java
 C:\github\SimpleStats\src\main\java\de\snx\statsapi\mysql\StringFilter.java
-C:\github\SimpleStats\src\main\java\de\snx\statsapi\manager\SimpleStatsManager.java

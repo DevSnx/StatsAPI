@@ -1,7 +1,7 @@
 package de.snx.statsapi;
 
 import de.snx.statsapi.manager.FileManager;
-import de.snx.statsapi.manager.SimpleStatsManager;
+import de.snx.statsapi.manager.StatsManager;
 import de.snx.statsapi.mysql.SQLManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -10,7 +10,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class StatsAPI extends JavaPlugin {
 
     public static StatsAPI instance;
-    public static SimpleStatsManager simpleStatsManager;
+    public static StatsManager statsManager;
     public static SQLManager sqlManager;
     public static FileManager fileManager;
 
@@ -24,7 +24,7 @@ public class StatsAPI extends JavaPlugin {
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                        §bV: §e" + getInstance().getDescription().getVersion() + "                      §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         if (loadSQL()) {
-            simpleStatsManager = new SimpleStatsManager();
+            statsManager = new StatsManager();
             Bukkit.getServer().getConsoleSender().sendMessage("§7|                §aErfolgreich geladen!            §7|");
         }else{
             Bukkit.getServer().getConsoleSender().sendMessage("§7|           §cFehler! §7Keine Datenbank Verbindung!    §7|");
@@ -56,5 +56,9 @@ public class StatsAPI extends JavaPlugin {
 
     public static SQLManager getSQLManager() {
         return sqlManager;
+    }
+
+    public static StatsManager getStatsManager() {
+        return statsManager;
     }
 }

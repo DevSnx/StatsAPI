@@ -8,11 +8,11 @@ import org.bukkit.entity.Player;
 import java.util.HashMap;
 import java.util.UUID;
 
-public class SimpleStatsManager {
+public class StatsManager {
 
     private HashMap<UUID, PlayerStats> playerStats;
 
-    public SimpleStatsManager(){
+    public StatsManager(){
         this.playerStats = new HashMap();
         StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `SimpleStatsAPI` (UUID VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, Playtime BIGINT, UNIQUE KEY (UUID))");
     }

@@ -2,7 +2,6 @@ de\snx\statsapi\file\DatabaseFile.class
 de\snx\statsapi\commands\CommandSimpleStats.class
 de\snx\statsapi\mysql\Updater.class
 de\snx\statsapi\mysql\StayAliveTask.class
-de\snx\statsapi\manager\SimpleStatsManager.class
 de\snx\statsapi\mysql\AsyncHandler$1.class
 de\snx\statsapi\manager\FileManager.class
 de\snx\statsapi\mysql\Callback.class
@@ -15,6 +14,7 @@ de\snx\statsapi\manager\other\PlayerStats.class
 de\snx\statsapi\mysql\StringFilter.class
 de\snx\statsapi\StatsAPI.class
 de\snx\statsapi\file\FileBase.class
+de\snx\statsapi\manager\StatsManager.class
 de\snx\statsapi\manager\other\PlayerStats$2.class
 de\snx\statsapi\mysql\AsyncHandler.class
 de\snx\statsapi\mysql\DatabaseUpdate.class
