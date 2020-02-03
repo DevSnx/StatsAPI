@@ -8,10 +8,11 @@ import java.util.UUID;
 public class StatsData {
 
     private UUID uuid;
+	private int games;
+	private int wins;
     private int kills;
     private int deaths;
-    private long timeCreated;
-    private long playtime;
+	private int rank;
     private boolean onlineMode;
 
     public StatsData(UUID uuid){
@@ -20,11 +21,12 @@ public class StatsData {
 
     public StatsData(UUID uuid, boolean addUpdater, boolean onlineMode){
         this.uuid = uuid;
-        this.kills = 0;
+        this.games = 0;
+		this.wins = 0;
+		this.kills = 0;
         this.deaths = 0;
-        this.playtime = 0L;
+		this.rank = 0;
         this.onlineMode = onlineMode;
-        this.timeCreated = System.currentTimeMillis();
     }
 
     public UUID getUUID() {
@@ -43,10 +45,6 @@ public class StatsData {
         return this.playtime;
     }
 
-    public long getTimeCreated() {
-        return this.timeCreated;
-    }
-
     public boolean isOnlineMode() {
         return this.onlineMode;
     }
@@ -61,13 +59,6 @@ public class StatsData {
         BigDecimal dec = new BigDecimal(getKills() / getDeaths());
         dec = dec.setScale(2, 4);
         return dec.doubleValue();
-    }
-
-    private void calculateNewPlaytime() {
-        long currentTime = System.currentTimeMillis();
-        long timeDiff = currentTime - this.timeCreated;
-        this.playtime += timeDiff;
-        this.timeCreated = currentTime;
     }
 
     public void setKills(int kills) {
