@@ -18,11 +18,8 @@ public class StatsManager {
 
     public StatsManager(){
         this.playerStats = new HashMap();
-<<<<<<< HEAD
         StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `StatsAPI` (UUID VARCHAR(100), NAME VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, UNIQUE KEY (UUID))");
-=======
         StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `SimpleStatsAPI` (UUID VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, UNIQUE KEY (UUID))");
->>>>>>> ee30ce1407d126f358132cc7c0c39799490efc7d
     }
 
     public void loadStatsForOnlines() {
