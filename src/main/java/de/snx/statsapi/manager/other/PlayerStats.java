@@ -11,6 +11,7 @@ import java.util.UUID;
 public class PlayerStats extends DatabaseUpdate {
 
     private UUID uuid;
+    private String name;
     private int games;
     private int wins;
     private int kills;
@@ -18,12 +19,13 @@ public class PlayerStats extends DatabaseUpdate {
     private int rank;
     private boolean onlineMode;
 
-    public PlayerStats(UUID uuid) {
-        this(uuid, true, true);
+    public PlayerStats(UUID uuid, String name) {
+        this(uuid,name ,true, true);
     }
 
-    public PlayerStats(UUID uuid, boolean addUpdater, boolean onlineMode) {
+    public PlayerStats(UUID uuid, String name , boolean addUpdater, boolean onlineMode) {
         this.uuid = uuid;
+        this.name = name;
         this.kills = 0;
         this.deaths = 0;
         this.rank = 0;
@@ -39,6 +41,10 @@ public class PlayerStats extends DatabaseUpdate {
 
     public UUID getUUID() {
         return this.uuid;
+    }
+
+    public String getName() {
+        return this.name;
     }
 
     public int getKills() {
@@ -77,6 +83,11 @@ public class PlayerStats extends DatabaseUpdate {
         return dec.doubleValue();
     }
 
+    public void setName(String name) {
+        this.name = name;
+        setUpdate(true);
+    }
+
     public void setGames(int games) {
         this.games = games;
         setUpdate(true);
@@ -104,15 +115,16 @@ public class PlayerStats extends DatabaseUpdate {
 
     public void saveData() {
         try {
-            PreparedStatement stCheck = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `SimpleStatsAPI` WHERE `UUID` = ?");
+            PreparedStatement stCheck = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `StatsAPI` WHERE `UUID` = ?");
             stCheck.setString(1, getUUID().toString());
             ResultSet rsCheck = StatsAPI.getSQLManager().executeQuery(stCheck);
             if (!rsCheck.next()) {
-                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `SimpleStatsAPI` (UUID, Games, Wins, Kills, Deaths) VALUES (?, 0, 0, 0, 0)");
+                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths) VALUES (?, ?, 0, 0, 0, 0)");
                 st.setString(1, getUUID().toString());
+                st.setString(1, getName());
                 StatsAPI.getSQLManager().executeUpdate(st);
             } else {
-                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("UPDATE `SimpleStatsAPI` SET `Games` = ?, `Wins` = ?, `Kills` = ?, `Deaths` = ? WHERE `UUID` = ?");
+                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("UPDATE `StatsAPI` SET `Games` = ?, `Wins` = ?, `Kills` = ?, `Deaths` = ? WHERE `UUID` = ?");
                 st.setInt(1, getGames());
                 st.setInt(2, getWins());
                 st.setInt(3, getKills());
@@ -137,18 +149,19 @@ public class PlayerStats extends DatabaseUpdate {
 
     public void loadData() {
         try {
-            PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `SimpleStatsAPI` WHERE `UUID` = ?");
+            PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `StatsAPI` WHERE `UUID` = ?");
             st.setString(1, getUUID().toString());
             ResultSet rs = StatsAPI.getSQLManager().executeQuery(st);
             if (!rs.next()) {
                 saveData();
             } else {
+                this.name = rs.getString("Name");
                 this.kills = rs.getInt("Kills");
                 this.deaths = rs.getInt("Deaths");
                 this.wins = rs.getInt("Wins");
                 this.games = rs.getInt("Games");
             }
-            ResultSet rs2 = StatsAPI.getSQLManager().executeQuery("SELECT * FROM `SimpleStatsAPI` ORDER BY `Kills` DESC");
+            ResultSet rs2 = StatsAPI.getSQLManager().executeQuery("SELECT * FROM `StatsAPI` ORDER BY `Kills` DESC");
             int count = 0;
             boolean done = false;
             while(rs2.next() && !(done)){

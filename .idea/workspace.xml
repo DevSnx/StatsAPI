@@ -26,13 +26,16 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SurvivalGames" />
+    <property name="ToolWindowAnt.ShowToolbar" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\github\SimpleStats" />
       <recent name="C:\github\SimpleStats\src\main\java\de\snx\simplestats\file" />
       <recent name="C:\github\SimpleStats\src\main\java\de\snx\simplestats\mysql" />
     </key>
@@ -67,6 +70,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="182" key="#Project_Structure/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1579824591138" />
+    <state x="414" y="179" width="1092" height="721" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1580821230975">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="179" width="1092" height="721" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580821230975" />
     <state x="690" y="271" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1580764566101">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -75,25 +82,33 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580772550675" />
-    <state width="1877" height="123" key="GridCell.Tab.0.bottom" timestamp="1580772551483">
+    <state width="1877" height="121" key="GridCell.Tab.0.bottom" timestamp="1580827174733">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="123" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580772551483" />
-    <state width="1877" height="123" key="GridCell.Tab.0.center" timestamp="1580772551483">
+    <state width="1877" height="121" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580827174733" />
+    <state width="1877" height="121" key="GridCell.Tab.0.center" timestamp="1580827174732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="123" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580772551483" />
-    <state width="1877" height="123" key="GridCell.Tab.0.left" timestamp="1580772551483">
+    <state width="1877" height="121" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580827174732" />
+    <state width="1877" height="121" key="GridCell.Tab.0.left" timestamp="1580827174732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="123" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580772551483" />
-    <state width="1877" height="123" key="GridCell.Tab.0.right" timestamp="1580772551483">
+    <state width="1877" height="121" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580827174732" />
+    <state width="1877" height="121" key="GridCell.Tab.0.right" timestamp="1580827174732">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="123" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580772551483" />
+    <state width="1877" height="121" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580827174732" />
+    <state x="440" y="98" key="SettingsEditor" timestamp="1580821334840">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="98" key="SettingsEditor/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580821334840" />
     <state x="342" y="225" key="new project wizard" timestamp="1580769012445">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="225" key="new project wizard/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580769012445" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1580822607658">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1580822607658" />
   </component>
 </project>

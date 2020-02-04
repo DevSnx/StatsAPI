@@ -1,5 +1,9 @@
-name: SimpleStatsAPI
-version: 1.0.2
+name: StatsAPI
+version: 1.0.3
+website: turadox.eu
 author: Snx
+description: a very Simple StatsAPI for MC 1.7 - 1.15
 
 main: de.snx.statsapi.StatsAPI
+commands:
+  stats:

@@ -5,6 +5,10 @@ import de.snx.statsapi.manager.other.PlayerStats;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 
+import java.io.IOException;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.UUID;
 
@@ -14,20 +18,35 @@ public class StatsManager {
 
     public StatsManager(){
         this.playerStats = new HashMap();
-        StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `SimpleStatsAPI` (UUID VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, Playtime BIGINT, UNIQUE KEY (UUID))");
+        StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `StatsAPI` (UUID VARCHAR(100), NAME VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, UNIQUE KEY (UUID))");
     }
 
     public void loadStatsForOnlines() {
         for (Player all : Bukkit.getOnlinePlayers()) {
-            addPlayerToCache(all.getUniqueId());
+            addPlayerToCache(all.getUniqueId(), all.getName());
         }
     }
 
-    public void addPlayerToCache(UUID uuid) {
+    public boolean hasPlayerStats(UUID uuid){
+        boolean check = false;
+        try {
+            PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `StatsAPI` WHERE `UUID` = ?");
+            st.setString(1, uuid.toString());
+            ResultSet rs = StatsAPI.getSQLManager().executeQuery(st);
+            if(rs.next()){
+               check = true;
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return check;
+    }
+
+    public void addPlayerToCache(UUID uuid, String name) {
         if (this.playerStats.containsKey(uuid)) {
             return;
         }
-        this.playerStats.put(uuid, new PlayerStats(uuid));
+        this.playerStats.put(uuid, new PlayerStats(uuid, name));
     }
 
     public void removePlayerFromCache(UUID uuid) {
