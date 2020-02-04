@@ -6,7 +6,6 @@ import de.snx.statsapi.manager.FileManager;
 import de.snx.statsapi.manager.StatsManager;
 import de.snx.statsapi.mysql.SQLManager;
 import org.bukkit.Bukkit;
-import org.bukkit.command.Command;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
 

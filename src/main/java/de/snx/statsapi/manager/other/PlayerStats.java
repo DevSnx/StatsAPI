@@ -121,7 +121,7 @@ public class PlayerStats extends DatabaseUpdate {
             if (!rsCheck.next()) {
                 PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths) VALUES (?, ?, 0, 0, 0, 0)");
                 st.setString(1, getUUID().toString());
-                st.setString(1, getName());
+                st.setString(2, getName());
                 StatsAPI.getSQLManager().executeUpdate(st);
             } else {
                 PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("UPDATE `StatsAPI` SET `Games` = ?, `Wins` = ?, `Kills` = ?, `Deaths` = ? WHERE `UUID` = ?");
