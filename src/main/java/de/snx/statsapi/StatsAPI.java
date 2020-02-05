@@ -74,4 +74,7 @@ public class StatsAPI extends JavaPlugin {
         return fileManager;
     }
 
+    public static RankingManager getRankingManager() {
+        return rankingManager;
+    }
 }
