@@ -4,8 +4,6 @@ import de.snx.statsapi.StatsAPI;
 import de.snx.statsapi.manager.other.PlayerStats;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
-
-import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;

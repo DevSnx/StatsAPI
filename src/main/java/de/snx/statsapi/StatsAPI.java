@@ -27,7 +27,9 @@ public class StatsAPI extends JavaPlugin {
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         if (loadSQL()) {
             statsManager = new StatsManager();
-            getCommand("stats").setExecutor(new CommandStats());
+            if(getFileManager().getConfigFile().getBoolean() == true){
+                getCommand("stats").setExecutor(new CommandStats());
+            }
             Bukkit.getPluginManager().registerEvents(new PlayerEvents(), this);
             Bukkit.getServer().getConsoleSender().sendMessage("§7|                  §aErfolgreich geladen!              §7|");
         }else{
@@ -35,6 +37,11 @@ public class StatsAPI extends JavaPlugin {
         }
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7+----------------------------------------------------+");
+    }
+
+    @Override
+    public void onDisable() {
+        instance = null;
     }
 
     private boolean loadSQL() {
@@ -46,12 +53,6 @@ public class StatsAPI extends JavaPlugin {
         String database = cfg.getString("DATABASE.DATABASE");
         sqlManager = new SQLManager(host, port, user, pass, database);
         return sqlManager.openConnection();
-    }
-
-
-    @Override
-    public void onDisable() {
-        instance = null;
     }
 
     public static StatsAPI getInstance() {
@@ -69,4 +70,5 @@ public class StatsAPI extends JavaPlugin {
     public static FileManager getFileManager() {
         return fileManager;
     }
+
 }
