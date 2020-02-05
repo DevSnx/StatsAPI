@@ -3,6 +3,7 @@ package de.snx.statsapi;
 import de.snx.statsapi.commands.CommandStats;
 import de.snx.statsapi.events.PlayerEvents;
 import de.snx.statsapi.manager.FileManager;
+import de.snx.statsapi.manager.RankingManager;
 import de.snx.statsapi.manager.StatsManager;
 import de.snx.statsapi.mysql.SQLManager;
 import org.bukkit.Bukkit;
@@ -15,6 +16,7 @@ public class StatsAPI extends JavaPlugin {
     public static StatsManager statsManager;
     public static SQLManager sqlManager;
     public static FileManager fileManager;
+    public static RankingManager rankingManager;
 
     @Override
     public void onEnable() {
@@ -27,6 +29,7 @@ public class StatsAPI extends JavaPlugin {
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         if (loadSQL()) {
             statsManager = new StatsManager();
+            rankingManager = new RankingManager();
             if(getFileManager().getConfigFile().getBoolean() == true){
                 getCommand("stats").setExecutor(new CommandStats());
             }

@@ -1,8 +1,0 @@
-name: StatsAPI
-version: 1.1.2
-author: Snx
-description: a very Simple StatsAPI for MC 1.7 - 1.15
-
-main: de.snx.statsapi.StatsAPI
-commands:
-  stats:
