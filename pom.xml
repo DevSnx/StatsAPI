@@ -6,7 +6,7 @@
 
     <groupId>de.snx</groupId>
     <artifactId>StatsAPI</artifactId>
-    <version>1.2.1</version>
+    <version>1.2.1-STABLE</version>
 
     <build>
         <plugins>
