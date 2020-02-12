@@ -114,26 +114,22 @@ public class PlayerStats extends DatabaseUpdate {
     }
 
     public void addWins(int wins){
-        int newwins = (this.wins+wins);
-        this.wins = newwins;
+        this.wins += wins;
         setUpdate(true);
     }
 
     public void addGames(int games){
-        int newwins = (this.wins+wins);
-        this.wins = newwins;
+        this.games += games;
         setUpdate(true);
     }
 
     public void addDeaths(int deaths){
-        int newdeaths = (this.deaths+deaths);
-        this.deaths = newdeaths;
+        this.deaths += deaths;
         setUpdate(true);
     }
 
     public void addKills(int kills){
-        int newkills = (this.kills+kills);
-        this.kills = newkills;
+        this.kills += kills;
         setUpdate(true);
     }
 
