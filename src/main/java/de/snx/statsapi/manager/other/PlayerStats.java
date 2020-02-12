@@ -113,6 +113,30 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
+    public void addWins(int wins){
+        int newwins = (this.wins+wins);
+        this.wins = newwins;
+        setUpdate(true);
+    }
+
+    public void addGames(int games){
+        int newwins = (this.wins+wins);
+        this.wins = newwins;
+        setUpdate(true);
+    }
+
+    public void addDeaths(int deaths){
+        int newdeaths = (this.deaths+deaths);
+        this.deaths = newdeaths;
+        setUpdate(true);
+    }
+
+    public void addKills(int kills){
+        int newkills = (this.kills+kills);
+        this.kills = newkills;
+        setUpdate(true);
+    }
+
     public void saveData() {
         try {
             PreparedStatement stCheck = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `StatsAPI` WHERE `UUID` = ?");
