@@ -17,6 +17,9 @@ public class PlayerStats extends DatabaseUpdate {
     private int kills;
     private int deaths;
     private int rank;
+    private int brokenblocks;
+    private int placedblocks;
+    private int openchests;
     private boolean onlineMode;
 
     public PlayerStats(UUID uuid, String name) {
@@ -31,6 +34,9 @@ public class PlayerStats extends DatabaseUpdate {
         this.rank = 0;
         this.games = 0;
         this.wins = 0;
+        this.brokenblocks = 0;
+        this.placedblocks = 0;
+        this.openchests = 0;
         this.onlineMode = onlineMode;
         loadDataAsync();
         if (addUpdater) {
@@ -65,6 +71,18 @@ public class PlayerStats extends DatabaseUpdate {
 
     public int getWins() {
         return this.wins;
+    }
+
+    public int getBrokenblocks() {
+        return this.brokenblocks;
+    }
+
+    public int getPlacedblocks() {
+        return this.placedblocks;
+    }
+
+    public int getOpenchests() {
+        return this.openchests;
     }
 
     public boolean isOnlineMode() {
@@ -113,6 +131,22 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
+    public void setBrokenblocks(int brokenblocks) {
+        this.brokenblocks = brokenblocks;
+        setUpdate(true);
+    }
+
+    public void setOpenchests(int openchests) {
+        this.openchests = openchests;
+        setUpdate(true);
+    }
+
+    public void setPlacedblocks(int placedblocks) {
+        this.placedblocks = placedblocks;
+        setUpdate(true);
+    }
+
+
     public void addWins(int wins){
         this.wins += wins;
         setUpdate(true);
@@ -133,23 +167,41 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
+    public void addBrokenblocks(int brokenblocks){
+        this.brokenblocks += brokenblocks;
+        setUpdate(true);
+    }
+
+    public void addPlacedblocks(int placedblocks){
+        this.placedblocks += placedblocks;
+        setUpdate(true);
+    }
+
+    public void addOpenchests(int openchests){
+        this.openchests += openchests;
+        setUpdate(true);
+    }
+
     public void saveData() {
         try {
             PreparedStatement stCheck = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `StatsAPI` WHERE `UUID` = ?");
             stCheck.setString(1, getUUID().toString());
             ResultSet rsCheck = StatsAPI.getSQLManager().executeQuery(stCheck);
             if (!rsCheck.next()) {
-                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths) VALUES (?, ?, 0, 0, 0, 0)");
+                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths, Placedblocks, Brokenblocks, Openchests) VALUES (?, ?, 0, 0, 0, 0, 0, 0,0)");
                 st.setString(1, getUUID().toString());
                 st.setString(2, getName());
                 StatsAPI.getSQLManager().executeUpdate(st);
             } else {
-                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("UPDATE `StatsAPI` SET `Games` = ?, `Wins` = ?, `Kills` = ?, `Deaths` = ? WHERE `UUID` = ?");
+                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("UPDATE `StatsAPI` SET `Games` = ?, `Wins` = ?, `Kills` = ?, `Deaths` = ?, `Placedblocks` = ?, `Brokenblocks` = ?, `Openchests` = ? WHERE `UUID` = ?");
                 st.setInt(1, getGames());
                 st.setInt(2, getWins());
                 st.setInt(3, getKills());
                 st.setInt(4, getDeaths());
-                st.setString(5, getUUID().toString());
+                st.setInt(5, getPlacedblocks());
+                st.setInt(6, getBrokenblocks());
+                st.setInt(7, getOpenchests());
+                st.setString(8, getUUID().toString());
                 StatsAPI.getSQLManager().executeUpdate(st);
             }
             rsCheck.close();
@@ -180,6 +232,9 @@ public class PlayerStats extends DatabaseUpdate {
                 this.deaths = rs.getInt("Deaths");
                 this.wins = rs.getInt("Wins");
                 this.games = rs.getInt("Games");
+                this.placedblocks = rs.getInt("Placedblocks");
+                this.brokenblocks = rs.getInt("Brokenblocks");
+                this.openchests = rs.getInt("Openchests");
             }
             ResultSet rs2 = StatsAPI.getSQLManager().executeQuery("SELECT * FROM `StatsAPI` ORDER BY `Kills` DESC");
             int count = 0;

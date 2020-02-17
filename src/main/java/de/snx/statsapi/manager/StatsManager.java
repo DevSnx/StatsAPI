@@ -16,8 +16,7 @@ public class StatsManager {
 
     public StatsManager(){
         this.playerStats = new HashMap();
-        StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `StatsAPI` (UUID VARCHAR(100), NAME VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, UNIQUE KEY (UUID))");
-        StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `SimpleStatsAPI` (UUID VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, UNIQUE KEY (UUID))");
+        StatsAPI.getSQLManager().executeUpdate("CREATE TABLE IF NOT EXISTS `StatsAPI` (UUID VARCHAR(100), NAME VARCHAR(100), Games INT, Wins INT, Kills INT, Deaths INT, Placedblocks INT, Brokenblocks INT, Openchests INT, UNIQUE KEY (UUID))");
     }
 
     public void loadStatsForOnlines() {
