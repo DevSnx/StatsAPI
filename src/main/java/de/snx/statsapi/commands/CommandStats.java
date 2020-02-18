@@ -69,6 +69,9 @@ public class CommandStats implements CommandExecutor {
                     abc = abc.replace("%DEATHS%" , String.valueOf(stats.getDeaths()));
                     abc = abc.replace("%KD%" , String.valueOf(stats.getKD()));
                     abc = abc.replace("%RANK%" , String.valueOf(stats.getRank()));
+                    abc = abc.replace("%PLACEDBLOCKS%" , String.valueOf(stats.getPlacedblocks()));
+                    abc = abc.replace("%BROKENBLOCKS%" , String.valueOf(stats.getBrokenblocks()));
+                    abc = abc.replace("%OPENCHESTS%" , String.valueOf(stats.getOpenchests()));
                     abc = abc.replace("%PLAYERNAME%" , String.valueOf(stats.getName()));
                     abc = abc.replace("&", "§");
                     p.sendMessage(abc);

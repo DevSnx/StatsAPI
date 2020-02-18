@@ -131,8 +131,8 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
-    public void setBrokenblocks(int brokenblocks) {
-        this.brokenblocks = brokenblocks;
+    public void setBrokenblocks(int blocks) {
+        this.brokenblocks = blocks;
         setUpdate(true);
     }
 
@@ -141,8 +141,8 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
-    public void setPlacedblocks(int placedblocks) {
-        this.placedblocks = placedblocks;
+    public void setPlacedblocks(int blocks) {
+        this.placedblocks = blocks;
         setUpdate(true);
     }
 
@@ -167,13 +167,13 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
-    public void addBrokenblocks(int brokenblocks){
-        this.brokenblocks += brokenblocks;
+    public void addBrokenblocks(int blocks){
+        this.brokenblocks += blocks;
         setUpdate(true);
     }
 
-    public void addPlacedblocks(int placedblocks){
-        this.placedblocks += placedblocks;
+    public void addPlacedblocks(int blocks){
+        this.placedblocks += blocks;
         setUpdate(true);
     }
 
@@ -188,7 +188,7 @@ public class PlayerStats extends DatabaseUpdate {
             stCheck.setString(1, getUUID().toString());
             ResultSet rsCheck = StatsAPI.getSQLManager().executeQuery(stCheck);
             if (!rsCheck.next()) {
-                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths, Placedblocks, Brokenblocks, Openchests) VALUES (?, ?, 0, 0, 0, 0, 0, 0,0)");
+                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths, Placedblocks, Brokenblocks, Openchests) VALUES (?, ?, 0, 0, 0, 0, 0, 0, 0)");
                 st.setString(1, getUUID().toString());
                 st.setString(2, getName());
                 StatsAPI.getSQLManager().executeUpdate(st);
