@@ -23,15 +23,30 @@ public class RankingManager {
     private LinkedHashMap<UUID, Integer> statsapi_wins;
     private LinkedHashMap<Integer, UUID> statsapi_wins_ranking;
 
+    private LinkedHashMap<UUID, Integer> statsapi_openchests;
+    private LinkedHashMap<Integer, UUID> statsapi_openchests_ranking;
+
+    private LinkedHashMap<UUID, Integer> statsapi_placedblocks;
+    private LinkedHashMap<Integer, UUID> statsapi_placedblocks_ranking;
+
+    private LinkedHashMap<UUID, Integer> statsapi_breakedblocks;
+    private LinkedHashMap<Integer, UUID> statsapi_breakedblocks_ranking;
+
     public RankingManager() {
         this.statsapi_kills = new LinkedHashMap();
         this.statsapi_deaths = new LinkedHashMap();
         this.statsapi_games = new LinkedHashMap();
         this.statsapi_wins = new LinkedHashMap();
+        this.statsapi_openchests = new LinkedHashMap();
+        this.statsapi_placedblocks = new LinkedHashMap();
+        this.statsapi_breakedblocks = new LinkedHashMap();
         this.statsapi_kills_ranking = new LinkedHashMap();
         this.statsapi_deaths_ranking = new LinkedHashMap();
         this.statsapi_games_ranking = new LinkedHashMap();
         this.statsapi_wins_ranking = new LinkedHashMap();
+        this.statsapi_openchests_ranking = new LinkedHashMap();
+        this.statsapi_placedblocks_ranking = new LinkedHashMap();
+        this.statsapi_breakedblocks_ranking = new LinkedHashMap();
         startUpdater();
     }
 
@@ -107,6 +122,58 @@ public class RankingManager {
                         }
                         rs4.close();
                         st4.close();
+                        //==============================================\\
+                        PreparedStatement st5 = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT `UUID`,`Openchests` FROM `StatsAPI` ORDER BY `Openchests` DESC LIMIT 10");
+                        ResultSet rs5 = StatsAPI.getSQLManager().executeQuery(st5);
+                        statsapi_openchests.clear();
+                        statsapi_openchests_ranking.clear();
+                        int i5 = 1;
+                        while(rs5.next()){
+                            String nameUUID = rs5.getString("UUID");
+                            UUID uuid = UUID.fromString(nameUUID);
+                            int games = rs5.getInt("Openchests");
+                            statsapi_openchests.put(uuid, Integer.valueOf(games));
+                            statsapi_openchests_ranking.put(i5, uuid);
+                            i5++;
+                            continue;
+                        }
+                        rs5.close();
+                        st5.close();
+                        //==============================================\\
+                        PreparedStatement st6 = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT `UUID`,`Placedblocks` FROM `StatsAPI` ORDER BY `Placedblocks` DESC LIMIT 10");
+                        ResultSet rs6 = StatsAPI.getSQLManager().executeQuery(st6);
+                        statsapi_placedblocks.clear();
+                        statsapi_placedblocks_ranking.clear();
+                        int i6 = 1;
+                        while(rs6.next()){
+                            String nameUUID = rs6.getString("UUID");
+                            UUID uuid = UUID.fromString(nameUUID);
+                            int blocks = rs6.getInt("Placedblocks");
+                            statsapi_openchests.put(uuid, Integer.valueOf(blocks));
+                            statsapi_openchests_ranking.put(i6, uuid);
+                            i6++;
+                            continue;
+                        }
+                        rs6.close();
+                        st6.close();
+                        //==============================================\\
+                        PreparedStatement st7 = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT `UUID`,`Brokenblocks` FROM `StatsAPI` ORDER BY `Brokenblocks` DESC LIMIT 10");
+                        ResultSet rs7 = StatsAPI.getSQLManager().executeQuery(st7);
+                        statsapi_breakedblocks.clear();
+                        statsapi_breakedblocks_ranking.clear();
+                        int i7 = 1;
+                        while(rs7.next()){
+                            String nameUUID = rs7.getString("UUID");
+                            UUID uuid = UUID.fromString(nameUUID);
+                            int blocks = rs7.getInt("Brokenblocks");
+                            statsapi_breakedblocks.put(uuid, Integer.valueOf(blocks));
+                            statsapi_breakedblocks_ranking.put(i7, uuid);
+                            i7++;
+                            continue;
+                        }
+                        rs7.close();
+                        st7.close();
+                        //==============================================\\
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -136,6 +203,18 @@ public class RankingManager {
         return this.statsapi_kills;
     }
 
+    public LinkedHashMap<UUID, Integer> getStatsapi_openchests() {
+        return this.statsapi_openchests;
+    }
+
+    public LinkedHashMap<UUID, Integer> getStatsapi_placedblocks() {
+        return this.statsapi_placedblocks;
+    }
+
+    public LinkedHashMap<UUID, Integer> getStatsapi_breakedblocks() {
+        return this.statsapi_breakedblocks;
+    }
+
     private LinkedHashMap<Integer, UUID> getStatsapi_deaths_ranking() {
         return this.statsapi_deaths_ranking;
     }
@@ -152,6 +231,18 @@ public class RankingManager {
         return this.statsapi_wins_ranking;
     }
 
+    public LinkedHashMap<Integer, UUID> getStatsapi_openchests_ranking() {
+        return this.statsapi_openchests_ranking;
+    }
+
+    public LinkedHashMap<Integer, UUID> getStatsapi_placedblocks_ranking() {
+        return this.statsapi_placedblocks_ranking;
+    }
+
+    public LinkedHashMap<Integer, UUID> getStatsapi_breakedblocks_ranking() {
+        return this.statsapi_breakedblocks_ranking;
+    }
+
     public UUID getUUID(RankedType rankedType, int position){
         UUID uuid = null;
         if(rankedType == RankedType.KILLS){
@@ -162,6 +253,12 @@ public class RankingManager {
             uuid = getStatsapi_wins_ranking().get(position);
         }else if(rankedType == RankedType.GAMES){
             uuid = getStatsapi_games_ranking().get(position);
+        }else if(rankedType == RankedType.OPENCHESTS){
+            uuid = getStatsapi_openchests_ranking().get(position);
+        }else if(rankedType == RankedType.PLACEDBLOCKS){
+            uuid = getStatsapi_placedblocks_ranking().get(position);
+        }else if(rankedType == RankedType.BREAKEDBLOCKS){
+            uuid = getStatsapi_breakedblocks_ranking().get(position);
         }
         return uuid;
     }
@@ -176,6 +273,12 @@ public class RankingManager {
             value = getStatsapi_wins().get(uuid);
         }else if(rankedType == RankedType.GAMES){
             value = getStatsapi_games().get(uuid);
+        }else if(rankedType == RankedType.OPENCHESTS){
+            value = getStatsapi_openchests().get(uuid);
+        }else if(rankedType == RankedType.PLACEDBLOCKS){
+            value = getStatsapi_placedblocks().get(uuid);
+        }else if(rankedType == RankedType.BREAKEDBLOCKS){
+            value = getStatsapi_breakedblocks().get(uuid);
         }
         return value;
     }
