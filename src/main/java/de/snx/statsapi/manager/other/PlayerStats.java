@@ -193,12 +193,12 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
-    public void addSkillpints(int skillpoints){
+    public void addSkillPoints(int skillpoints){
         this.skillpoints += skillpoints;
         setUpdate(true);
     }
 
-    public void removeSkillpints(int skillpoints){
+    public void removeSkillPoints(int skillpoints){
         this.skillpoints -= skillpoints;
         setUpdate(true);
     }
