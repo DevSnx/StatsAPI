@@ -20,6 +20,7 @@ public class PlayerStats extends DatabaseUpdate {
     private int brokenblocks;
     private int placedblocks;
     private int openchests;
+    private int skillpoints;
     private boolean onlineMode;
 
     public PlayerStats(UUID uuid, String name) {
@@ -37,6 +38,7 @@ public class PlayerStats extends DatabaseUpdate {
         this.brokenblocks = 0;
         this.placedblocks = 0;
         this.openchests = 0;
+        this.skillpoints = 0;
         this.onlineMode = onlineMode;
         loadDataAsync();
         if (addUpdater) {
@@ -85,6 +87,10 @@ public class PlayerStats extends DatabaseUpdate {
         return this.openchests;
     }
 
+    public int getSkillpoints() {
+        return this.skillpoints;
+    }
+
     public boolean isOnlineMode() {
         return this.onlineMode;
     }
@@ -113,6 +119,11 @@ public class PlayerStats extends DatabaseUpdate {
 
     public void setWins(int wins) {
         this.wins = wins;
+        setUpdate(true);
+    }
+
+    public void setSkillpoints(int skillpoints) {
+        this.skillpoints = skillpoints;
         setUpdate(true);
     }
 
@@ -182,18 +193,28 @@ public class PlayerStats extends DatabaseUpdate {
         setUpdate(true);
     }
 
+    public void addSkillpints(int skillpoints){
+        this.skillpoints += skillpoints;
+        setUpdate(true);
+    }
+
+    public void removeSkillpints(int skillpoints){
+        this.skillpoints -= skillpoints;
+        setUpdate(true);
+    }
+
     public void saveData() {
         try {
             PreparedStatement stCheck = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT * FROM `StatsAPI` WHERE `UUID` = ?");
             stCheck.setString(1, getUUID().toString());
             ResultSet rsCheck = StatsAPI.getSQLManager().executeQuery(stCheck);
             if (!rsCheck.next()) {
-                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths, Placedblocks, Brokenblocks, Openchests) VALUES (?, ?, 0, 0, 0, 0, 0, 0, 0)");
+                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("INSERT INTO `StatsAPI` (UUID, Name, Games, Wins, Kills, Deaths, Placedblocks, Brokenblocks, Openchests, Skillpoints) VALUES (?, ?, 0, 0, 0, 0, 0, 0, 0, 0)");
                 st.setString(1, getUUID().toString());
                 st.setString(2, getName());
                 StatsAPI.getSQLManager().executeUpdate(st);
             } else {
-                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("UPDATE `StatsAPI` SET `Games` = ?, `Wins` = ?, `Kills` = ?, `Deaths` = ?, `Placedblocks` = ?, `Brokenblocks` = ?, `Openchests` = ? WHERE `UUID` = ?");
+                PreparedStatement st = StatsAPI.getSQLManager().getConnection().prepareStatement("UPDATE `StatsAPI` SET `Games` = ?, `Wins` = ?, `Kills` = ?, `Deaths` = ?, `Placedblocks` = ?, `Brokenblocks` = ?, `Openchests` = ?, `Skillpoints` = ? WHERE `UUID` = ?");
                 st.setInt(1, getGames());
                 st.setInt(2, getWins());
                 st.setInt(3, getKills());
@@ -201,7 +222,8 @@ public class PlayerStats extends DatabaseUpdate {
                 st.setInt(5, getPlacedblocks());
                 st.setInt(6, getBrokenblocks());
                 st.setInt(7, getOpenchests());
-                st.setString(8, getUUID().toString());
+                st.setInt(8, getSkillpoints());
+                st.setString(9, getUUID().toString());
                 StatsAPI.getSQLManager().executeUpdate(st);
             }
             rsCheck.close();
@@ -235,6 +257,7 @@ public class PlayerStats extends DatabaseUpdate {
                 this.placedblocks = rs.getInt("Placedblocks");
                 this.brokenblocks = rs.getInt("Brokenblocks");
                 this.openchests = rs.getInt("Openchests");
+                this.skillpoints = rs.getInt("Skillpoints");
             }
             ResultSet rs2 = StatsAPI.getSQLManager().executeQuery("SELECT * FROM `StatsAPI` ORDER BY `Kills` DESC");
             int count = 0;
