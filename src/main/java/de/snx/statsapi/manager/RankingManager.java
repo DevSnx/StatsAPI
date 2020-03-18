@@ -32,6 +32,9 @@ public class RankingManager {
     private LinkedHashMap<UUID, Integer> statsapi_breakedblocks;
     private LinkedHashMap<Integer, UUID> statsapi_breakedblocks_ranking;
 
+    private LinkedHashMap<UUID, Integer> statsapi_skillpoints;
+    private LinkedHashMap<Integer, UUID> statsapi_skillpoints_ranking;
+
     public RankingManager() {
         this.statsapi_kills = new LinkedHashMap();
         this.statsapi_deaths = new LinkedHashMap();
@@ -40,6 +43,9 @@ public class RankingManager {
         this.statsapi_openchests = new LinkedHashMap();
         this.statsapi_placedblocks = new LinkedHashMap();
         this.statsapi_breakedblocks = new LinkedHashMap();
+
+        this.statsapi_skillpoints = new LinkedHashMap();
+        this.statsapi_skillpoints_ranking = new LinkedHashMap();
         this.statsapi_kills_ranking = new LinkedHashMap();
         this.statsapi_deaths_ranking = new LinkedHashMap();
         this.statsapi_games_ranking = new LinkedHashMap();
@@ -174,6 +180,23 @@ public class RankingManager {
                         rs7.close();
                         st7.close();
                         //==============================================\\
+                        PreparedStatement st8 = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT `UUID`,`Skillpoints` FROM `StatsAPI` ORDER BY `Brokenblocks` DESC LIMIT 10");
+                        ResultSet rs8 = StatsAPI.getSQLManager().executeQuery(st7);
+                        statsapi_breakedblocks.clear();
+                        statsapi_breakedblocks_ranking.clear();
+                        int i8 = 1;
+                        while(rs8.next()){
+                            String nameUUID = rs8.getString("UUID");
+                            UUID uuid = UUID.fromString(nameUUID);
+                            int blocks = rs8.getInt("Skillpoints");
+                            statsapi_skillpoints.put(uuid, Integer.valueOf(blocks));
+                            statsapi_skillpoints_ranking.put(i8, uuid);
+                            i8++;
+                            continue;
+                        }
+                        rs8.close();
+                        st8.close();
+                        //==============================================\\
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -239,6 +262,14 @@ public class RankingManager {
         return this.statsapi_placedblocks_ranking;
     }
 
+    public LinkedHashMap<Integer, UUID> getStatsapi_skillpoints_ranking() {
+        return this.statsapi_skillpoints_ranking;
+    }
+
+    public LinkedHashMap<UUID, Integer> getStatsapi_skillpoints() {
+        return this.statsapi_skillpoints;
+    }
+
     public LinkedHashMap<Integer, UUID> getStatsapi_breakedblocks_ranking() {
         return this.statsapi_breakedblocks_ranking;
     }
@@ -259,6 +290,8 @@ public class RankingManager {
             uuid = getStatsapi_placedblocks_ranking().get(position);
         }else if(rankedType == RankedType.BREAKEDBLOCKS){
             uuid = getStatsapi_breakedblocks_ranking().get(position);
+        }else if(rankedType == RankedType.SKILLPOINTS){
+            uuid = getStatsapi_skillpoints_ranking().get(position);
         }
         return uuid;
     }
@@ -279,6 +312,8 @@ public class RankingManager {
             value = getStatsapi_placedblocks().get(uuid);
         }else if(rankedType == RankedType.BREAKEDBLOCKS){
             value = getStatsapi_breakedblocks().get(uuid);
+        }else if(rankedType == RankedType.SKILLPOINTS){
+            value = getStatsapi_skillpoints().get(uuid);
         }
         return value;
     }
