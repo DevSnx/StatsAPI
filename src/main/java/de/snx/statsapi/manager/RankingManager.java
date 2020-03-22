@@ -180,10 +180,10 @@ public class RankingManager {
                         rs7.close();
                         st7.close();
                         //==============================================\\
-                        PreparedStatement st8 = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT `UUID`,`Skillpoints` FROM `StatsAPI` ORDER BY `Brokenblocks` DESC LIMIT 10");
-                        ResultSet rs8 = StatsAPI.getSQLManager().executeQuery(st7);
-                        statsapi_breakedblocks.clear();
-                        statsapi_breakedblocks_ranking.clear();
+                        PreparedStatement st8 = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT `UUID`,`Skillpoints` FROM `StatsAPI` ORDER BY `Skillpoints` DESC LIMIT 10");
+                        ResultSet rs8 = StatsAPI.getSQLManager().executeQuery(st8);
+                        statsapi_skillpoints.clear();
+                        statsapi_skillpoints_ranking.clear();
                         int i8 = 1;
                         while(rs8.next()){
                             String nameUUID = rs8.getString("UUID");
