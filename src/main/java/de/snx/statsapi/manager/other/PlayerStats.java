@@ -96,15 +96,9 @@ public class PlayerStats extends DatabaseUpdate {
     }
 
     public double getKD() {
-        if (getKills() <= 0) {
-            return 0.0D;
-        }
-        if (getDeaths() <= 0) {
-            return getKills();
-        }
-        BigDecimal dec = new BigDecimal(getKills() / getDeaths());
-        dec = dec.setScale(2, 4);
-        return dec.doubleValue();
+        double d = getKills() / getDeaths();
+        double kd100 = d / 100.0D; //Now we're at 0.1d?
+        return new BigDecimal(d).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
     }
 
     public void setName(String name) {
