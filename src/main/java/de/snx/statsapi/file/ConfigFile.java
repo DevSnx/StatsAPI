@@ -12,11 +12,16 @@ public class ConfigFile extends  FileBase{
     private void writeDefaults() {
         FileConfiguration cfg = getConfig();
         cfg.addDefault("CONFIG.COMMAND.STATS", true);
+        cfg.addDefault("CONFIG.COMMAND.TOP", true);
         cfg.options().copyDefaults(true);
         saveConfig();
     }
 
-    public boolean getBoolean(){
+    public boolean getStats(){
         return getConfig().getBoolean("CONFIG.COMMAND.STATS");
+    }
+
+    public boolean getTop(){
+        return getConfig().getBoolean("CONFIG.COMMAND.TOP");
     }
 }

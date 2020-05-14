@@ -1,6 +1,5 @@
 package de.snx.statsapi.commands;
 
-import com.google.common.math.Stats;
 import de.snx.statsapi.StatsAPI;
 import de.snx.statsapi.manager.other.PlayerStats;
 import de.snx.statsapi.mysql.DatabaseUpdate;
@@ -67,7 +66,7 @@ public class CommandStats implements CommandExecutor {
                     abc = abc.replace("%GAMES%" , String.valueOf(stats.getGames()));
                     abc = abc.replace("%WINS%" , String.valueOf(stats.getWins()));
                     abc = abc.replace("%DEATHS%" , String.valueOf(stats.getDeaths()));
-                    abc = abc.replace("%KD%" , String.valueOf(stats.getKD()));
+                    //abc = abc.replace("%KD%" , String.valueOf(stats.getKD()));
                     abc = abc.replace("%RANK%" , String.valueOf(stats.getRank()));
                     abc = abc.replace("%PLACEDBLOCKS%" , String.valueOf(stats.getPlacedblocks()));
                     abc = abc.replace("%BROKENBLOCKS%" , String.valueOf(stats.getBrokenblocks()));

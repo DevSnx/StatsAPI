@@ -210,19 +210,19 @@ public class RankingManager {
         }).start();
     }
 
-    private LinkedHashMap<UUID, Integer> getStatsapi_deaths() {
+    public LinkedHashMap<UUID, Integer> getStatsapi_deaths() {
         return this.statsapi_deaths;
     }
 
-    private LinkedHashMap<UUID, Integer> getStatsapi_games() {
+    public LinkedHashMap<UUID, Integer> getStatsapi_games() {
         return this.statsapi_games;
     }
 
-    private LinkedHashMap<UUID, Integer> getStatsapi_wins() {
+    public LinkedHashMap<UUID, Integer> getStatsapi_wins() {
         return this.statsapi_wins;
     }
 
-    private LinkedHashMap<UUID, Integer> getStatsapi_kills() {
+    public LinkedHashMap<UUID, Integer> getStatsapi_kills() {
         return this.statsapi_kills;
     }
 
@@ -238,19 +238,19 @@ public class RankingManager {
         return this.statsapi_breakedblocks;
     }
 
-    private LinkedHashMap<Integer, UUID> getStatsapi_deaths_ranking() {
+    public LinkedHashMap<Integer, UUID> getStatsapi_deaths_ranking() {
         return this.statsapi_deaths_ranking;
     }
 
-    private LinkedHashMap<Integer, UUID> getStatsapi_games_ranking() {
+    public LinkedHashMap<Integer, UUID> getStatsapi_games_ranking() {
         return this.statsapi_games_ranking;
     }
 
-    private LinkedHashMap<Integer, UUID> getStatsapi_kills_ranking() {
+    public LinkedHashMap<Integer, UUID> getStatsapi_kills_ranking() {
         return this.statsapi_kills_ranking;
     }
 
-    private LinkedHashMap<Integer, UUID> getStatsapi_wins_ranking() {
+    public LinkedHashMap<Integer, UUID> getStatsapi_wins_ranking() {
         return this.statsapi_wins_ranking;
     }
 

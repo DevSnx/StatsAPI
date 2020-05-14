@@ -1,11 +1,13 @@
 package de.snx.statsapi;
 
 import de.snx.statsapi.commands.CommandStats;
+import de.snx.statsapi.commands.CommandTop;
 import de.snx.statsapi.events.PlayerEvents;
 import de.snx.statsapi.manager.FileManager;
 import de.snx.statsapi.manager.RankingManager;
 import de.snx.statsapi.manager.StatsManager;
 import de.snx.statsapi.mysql.SQLManager;
+import de.snx.statsapi.utils.Ranked;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,6 +19,8 @@ public class StatsAPI extends JavaPlugin {
     public static SQLManager sqlManager;
     public static FileManager fileManager;
     public static RankingManager rankingManager;
+
+    public static Ranked ranked;
 
     @Override
     public void onEnable() {
@@ -30,16 +34,28 @@ public class StatsAPI extends JavaPlugin {
         if (loadSQL()) {
             statsManager = new StatsManager();
             rankingManager = new RankingManager();
-            if(getFileManager().getConfigFile().getBoolean() == true){
+
+            if(getFileManager().getConfigFile().getStats() == true){
                 getCommand("stats").setExecutor(new CommandStats());
             }
+            if(getFileManager().getConfigFile().getTop() == true){
+                getCommand("top").setExecutor(new CommandTop());
+            }
             Bukkit.getPluginManager().registerEvents(new PlayerEvents(), this);
+
             Bukkit.getServer().getConsoleSender().sendMessage("§7|                  §aErfolgreich geladen!              §7|");
         }else{
             Bukkit.getServer().getConsoleSender().sendMessage("§7|           §cFehler! §7Keine Datenbank Verbindung!      §7|");
         }
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7+----------------------------------------------------+");
+
+        Bukkit.getScheduler().runTaskLater(getInstance(), new Runnable() {
+            @Override
+            public void run() {
+                ranked = new Ranked();
+            }
+        }, 60L);
     }
 
     @Override
@@ -76,5 +92,9 @@ public class StatsAPI extends JavaPlugin {
 
     public static RankingManager getRankingManager() {
         return rankingManager;
+    }
+
+    public static Ranked getRanked() {
+        return ranked;
     }
 }
