@@ -1,7 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="ba5949d1-922f-4a87-b0a9-272b156b9593" name="Default Changelist" comment="" />
+    <list default="true" id="ba5949d1-922f-4a87-b0a9-272b156b9593" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/StatsAPI.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/StatsAPI.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/StatsAPI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/StatsAPI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/commands/CommandStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/commands/CommandStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/commands/CommandTop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/commands/CommandTop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/events/PlayerEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/events/PlayerEvents.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/ConfigFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/ConfigFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/DatabaseFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/DatabaseFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/FileBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/FileBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/MessagesFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/file/MessagesFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/RankingManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/RankingManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/StatsManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/StatsManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/other/PlayerStats.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/other/PlayerStats.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/other/RankedType.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/manager/other/RankedType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/AsyncHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/AsyncHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/Callback.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/Callback.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/DatabaseUpdate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/DatabaseUpdate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/SQLManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/SQLManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/StayAliveTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/StayAliveTask.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/StringFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/StringFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/Updater.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/mysql/Updater.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/utils/Ranked.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/utils/Ranked.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/utils/UUIDFetcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/de/snx/statsapi/utils/UUIDFetcher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/plugin.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/plugin.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,29 +54,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="1WomuqkMMNa9u49BFtKRApId8GK" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="ToolWindowAnt.ShowToolbar" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Raiyu-Lobby" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
-  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/hnlma/OneDrive/Dokumente/GitHub/Spigotmc/StatsAPI&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  }
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\github\SimpleStats" />
@@ -59,6 +91,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -69,42 +102,27 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1579824546036</updated>
+      <workItem from="1660917490914" duration="514000" />
+      <workItem from="1660918094366" duration="631000" />
+      <workItem from="1660918745000" duration="127000" />
     </task>
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1589544218988">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582490943321" />
-    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1589544218988" />
-    <state width="1292" height="87" key="GridCell.Tab.0.bottom" timestamp="1589490763012">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582161699241" />
-    <state width="1877" height="125" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582606082436" />
-    <state width="1292" height="87" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1589490763012" />
-    <state width="1292" height="87" key="GridCell.Tab.0.center" timestamp="1589490763012">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582161699241" />
-    <state width="1877" height="125" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582606082436" />
-    <state width="1292" height="87" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1589490763012" />
-    <state width="1292" height="87" key="GridCell.Tab.0.left" timestamp="1589490763012">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582161699241" />
-    <state width="1877" height="125" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582606082436" />
-    <state width="1292" height="87" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1589490763012" />
-    <state width="1292" height="87" key="GridCell.Tab.0.right" timestamp="1589490763012">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="125" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1582161699241" />
-    <state width="1877" height="125" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582606082436" />
-    <state width="1292" height="87" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1589490763012" />
-    <state x="342" y="225" key="new project wizard" timestamp="1582650722430">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="342" y="225" key="new project wizard/0.0.1920.1040/-1920.0.1920.1040@0.0.1920.1040" timestamp="1582650722430" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="java:org.spigotmc:spigot-api" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

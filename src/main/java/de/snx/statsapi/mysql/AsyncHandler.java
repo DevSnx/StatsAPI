@@ -1,9 +1,9 @@
 package de.snx.statsapi.mysql;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import com.mysql.jdbc.PreparedStatement;
 import de.snx.statsapi.StatsAPI;
 
 public class AsyncHandler {
