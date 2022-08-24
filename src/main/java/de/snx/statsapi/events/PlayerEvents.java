@@ -40,8 +40,8 @@ public class PlayerEvents implements Listener {
         }
         Player p = (Player) event.getPlayer();
         Inventory inv = event.getInventory();
-        if (inv.getTitle().equals("Top 10")) {
-            if (event.getInventory().getItem(4).getType() == Material.SKULL_ITEM) {
+        if (event.getView().getTitle().equals("Top 10")) {
+            if (event.getInventory().getItem(4).getType() == Material.PLAYER_HEAD) {
                 SkullMeta meta = (SkullMeta) event.getInventory().getItem(4).getItemMeta();
                 meta.setOwner(p.getName());
                 List<String> lore = meta.getLore();

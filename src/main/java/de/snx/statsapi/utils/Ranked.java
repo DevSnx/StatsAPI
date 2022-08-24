@@ -28,7 +28,7 @@ public class Ranked implements Listener {
     public void loadRankedInventory(){
         int i2 = 12;
 
-        Ranked.setItem(4, new ItemStack(Material.SKULL_ITEM, 1, (short) 3));
+        Ranked.setItem(4, new ItemStack(Material.PLAYER_HEAD, 1, (short) 3));
 
         for(int i = 0; i < 11; i++){
             if(StatsAPI.getRankingManager().getUUID(RankedType.KILLS, i) != null){
@@ -46,7 +46,7 @@ public class Ranked implements Listener {
     }
 
     public ItemStack getPlayerHead(String playerName, Integer kills, Integer deaths){
-        ItemStack head = new ItemStack(Material.SKULL_ITEM, 1, (short) 3);
+        ItemStack head = new ItemStack(Material.PLAYER_HEAD, 1, (short) 3);
         SkullMeta meta = (SkullMeta) head.getItemMeta();
         meta.setOwner("§a" + playerName);
         ArrayList<String> lore = new ArrayList<String>();
