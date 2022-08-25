@@ -19,9 +19,7 @@ public class StatsAPI extends JavaPlugin {
     public static SQLManager sqlManager;
     public static FileManager fileManager;
     public static RankingManager rankingManager;
-
     public static Ranked ranked;
-
     @Override
     public void onEnable() {
         instance = this;
