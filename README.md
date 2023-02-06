@@ -125,7 +125,7 @@ Spoiler:  Config.yml
 	stats.getBrokenblocks();  
 	stats.getPlacedblocks();  
 	stats.getOpenchests();  
-	tats.getElo();	
+	stats.getElo();	
   
 	stats.addSkillPoints(int  points);  
 	stats.removeSkillPoints(int  points);  
