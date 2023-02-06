@@ -125,6 +125,10 @@ Spoiler:  Config.yml
 	stats.getBrokenblocks();  
 	stats.getPlacedblocks();  
 	stats.getOpenchests();  
+<<<<<<< HEAD
+=======
+	stats.getElo();	
+>>>>>>> pr/2
   
 	stats.addSkillPoints(int  points);  
 	stats.removeSkillPoints(int  points);  
