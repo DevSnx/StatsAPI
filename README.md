@@ -125,10 +125,7 @@ Spoiler:  Config.yml
 	stats.getBrokenblocks();  
 	stats.getPlacedblocks();  
 	stats.getOpenchests();  
-<<<<<<< HEAD
-=======
 	stats.getElo();	
->>>>>>> pr/2
   
 	stats.addSkillPoints(int  points);  
 	stats.removeSkillPoints(int  points);  
@@ -136,7 +133,3 @@ Spoiler:  Config.yml
   
 	UUID  uuid  =  StatsAPI.getRankingManager().getUUID(RankedType,  1);  
 	int  rank  =  StatsAPI.getRankingManager().getValues(RankedType, uuid);  
-<<<<<<< HEAD
-=======
-
->>>>>>> pr/2
