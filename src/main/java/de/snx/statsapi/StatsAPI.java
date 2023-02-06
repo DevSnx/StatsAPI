@@ -11,9 +11,7 @@ import de.snx.statsapi.utils.Ranked;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
-
 public class StatsAPI extends JavaPlugin {
-
     public static StatsAPI instance;
     public static StatsManager statsManager;
     public static SQLManager sqlManager;
@@ -47,7 +45,6 @@ public class StatsAPI extends JavaPlugin {
         }
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7+----------------------------------------------------+");
-
         Bukkit.getScheduler().runTaskLater(getInstance(), new Runnable() {
             @Override
             public void run() {
