@@ -24,4 +24,5 @@ public class ConfigFile extends  FileBase{
     public boolean getTop(){
         return getConfig().getBoolean("CONFIG.COMMAND.TOP");
     }
+
 }

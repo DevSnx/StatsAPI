@@ -26,7 +26,7 @@ public class StatsAPI extends JavaPlugin {
         fileManager = new FileManager();
         Bukkit.getServer().getConsoleSender().sendMessage("§7+----------------------------------------------------+");
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
-        Bukkit.getServer().getConsoleSender().sendMessage("§7|                    §cStatsAPI by DevSnx              §7|");
+        Bukkit.getServer().getConsoleSender().sendMessage("§7|       §cStatsAPI by DevSnx and AJAR3TR0        §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                        §bV: §e" + getInstance().getDescription().getVersion() + "                    §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         if (loadSQL()) {
