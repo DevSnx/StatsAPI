@@ -29,6 +29,7 @@ public class MessagesFile extends FileBase{
         list.add(" &7Open Chests: &e%OPENCHESTS%");
         list.add(" &7Broken Blocks: &e%BROKENBLOCKS%");
         list.add(" &7Placed Blocks: &e%PLACEDBLOCKS%");
+        list.add(" &7Elo: &e%ELO%");
         list.add("&7-=-=-=-=-=-=-=-=-=-=-=-");
         cfg.addDefault("MESSAGE.STATS.COMMAND", list);
         cfg.options().copyDefaults(true);

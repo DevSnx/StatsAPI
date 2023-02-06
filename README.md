@@ -132,3 +132,7 @@ Spoiler:  Config.yml
   
 	UUID  uuid  =  StatsAPI.getRankingManager().getUUID(RankedType,  1);  
 	int  rank  =  StatsAPI.getRankingManager().getValues(RankedType, uuid);  
+<<<<<<< HEAD
+=======
+
+>>>>>>> pr/2
