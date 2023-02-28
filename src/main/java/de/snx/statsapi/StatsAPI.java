@@ -24,7 +24,7 @@ public class StatsAPI extends JavaPlugin {
         fileManager = new FileManager();
         Bukkit.getServer().getConsoleSender().sendMessage("§7+----------------------------------------------------+");
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
-        Bukkit.getServer().getConsoleSender().sendMessage("§7|       §cStatsAPI by DevSnx and AJAR3TR0        §7|");
+        Bukkit.getServer().getConsoleSender().sendMessage("§7|         §cStatsAPI by DevSnx and AJAR3TR0          §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                        §bV: §e" + getInstance().getDescription().getVersion() + "                    §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         if (loadSQL()) {
@@ -39,9 +39,9 @@ public class StatsAPI extends JavaPlugin {
             }
             Bukkit.getPluginManager().registerEvents(new PlayerEvents(), this);
 
-            Bukkit.getServer().getConsoleSender().sendMessage("§7|                  §aErfolgreich geladen!              §7|");
+            Bukkit.getServer().getConsoleSender().sendMessage("§7|                  §aLoading success!              §7|");
         }else{
-            Bukkit.getServer().getConsoleSender().sendMessage("§7|           §cFehler! §7Keine Datenbank Verbindung!      §7|");
+            Bukkit.getServer().getConsoleSender().sendMessage("§7|           §cNo Database Connection!      §7|");
         }
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7+----------------------------------------------------+");
