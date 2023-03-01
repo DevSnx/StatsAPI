@@ -35,6 +35,9 @@ public class RankingManager {
     private LinkedHashMap<UUID, Integer> statsapi_skillpoints;
     private LinkedHashMap<Integer, UUID> statsapi_skillpoints_ranking;
 
+    private LinkedHashMap<UUID, Integer> statsapi_elo;
+    private LinkedHashMap<Integer, UUID> statsapi_elo_ranking;
+
     public RankingManager() {
         this.statsapi_kills = new LinkedHashMap();
         this.statsapi_deaths = new LinkedHashMap();
@@ -43,6 +46,7 @@ public class RankingManager {
         this.statsapi_openchests = new LinkedHashMap();
         this.statsapi_placedblocks = new LinkedHashMap();
         this.statsapi_breakedblocks = new LinkedHashMap();
+        this.statsapi_elo = new LinkedHashMap<>();
 
         this.statsapi_skillpoints = new LinkedHashMap();
         this.statsapi_skillpoints_ranking = new LinkedHashMap();
@@ -53,6 +57,7 @@ public class RankingManager {
         this.statsapi_openchests_ranking = new LinkedHashMap();
         this.statsapi_placedblocks_ranking = new LinkedHashMap();
         this.statsapi_breakedblocks_ranking = new LinkedHashMap();
+        this.statsapi_elo_ranking = new LinkedHashMap<>();
         startUpdater();
     }
 
@@ -197,6 +202,23 @@ public class RankingManager {
                         rs8.close();
                         st8.close();
                         //==============================================\\
+                        PreparedStatement st9 = StatsAPI.getSQLManager().getConnection().prepareStatement("SELECT `UUID`,`Elo` FROM `StatsAPI` ORDER BY `Elo` DESC LIMIT 10");
+                        ResultSet rs9 = StatsAPI.getSQLManager().executeQuery(st9);
+                        statsapi_elo.clear();
+                        statsapi_elo_ranking.clear();
+                        int i9 = 1;
+                        while(rs9.next()){
+                            String nameUUID = rs9.getString("UUID");
+                            UUID uuid = UUID.fromString(nameUUID);
+                            int blocks = rs9.getInt("Elo");
+                            statsapi_elo.put(uuid, Integer.valueOf(blocks));
+                            statsapi_elo_ranking.put(i9, uuid);
+                            i9++;
+                            continue;
+                        }
+                        rs9.close();
+                        st9.close();
+                        //==============================================\\
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -274,6 +296,14 @@ public class RankingManager {
         return this.statsapi_breakedblocks_ranking;
     }
 
+    public LinkedHashMap<Integer, UUID> getStatsapi_elo_ranking() {
+        return this.statsapi_elo_ranking;
+    }
+
+    public LinkedHashMap<UUID, Integer> getStatsapi_elo() {
+        return this.statsapi_elo;
+    }
+
     public UUID getUUID(RankedType rankedType, int position){
         UUID uuid = null;
         if(rankedType == RankedType.KILLS){
@@ -291,6 +321,8 @@ public class RankingManager {
         }else if(rankedType == RankedType.BREAKEDBLOCKS){
             uuid = getStatsapi_breakedblocks_ranking().get(position);
         }else if(rankedType == RankedType.SKILLPOINTS){
+            uuid = getStatsapi_skillpoints_ranking().get(position);
+        }else if(rankedType == RankedType.ELO){
             uuid = getStatsapi_skillpoints_ranking().get(position);
         }
         return uuid;
@@ -313,6 +345,8 @@ public class RankingManager {
         }else if(rankedType == RankedType.BREAKEDBLOCKS){
             value = getStatsapi_breakedblocks().get(uuid);
         }else if(rankedType == RankedType.SKILLPOINTS){
+            value = getStatsapi_skillpoints().get(uuid);
+        }else if(rankedType == RankedType.ELO){
             value = getStatsapi_skillpoints().get(uuid);
         }
         return value;
