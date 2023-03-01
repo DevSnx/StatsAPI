@@ -2,12 +2,10 @@ package de.snx.statsapi.manager.other;
 
 import de.snx.statsapi.StatsAPI;
 import de.snx.statsapi.mysql.DatabaseUpdate;
-
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.UUID;
-
 public class PlayerStats extends DatabaseUpdate {
 
     private UUID uuid;
