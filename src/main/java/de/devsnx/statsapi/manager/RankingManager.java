@@ -1,12 +1,8 @@
-package de.snx.statsapi.manager;
+package de.devsnx.statsapi.manager;
 
-import de.snx.statsapi.StatsAPI;
-import de.snx.statsapi.manager.other.RankedType;
-import org.bukkit.Bukkit;
-import org.bukkit.OfflinePlayer;
+import de.devsnx.statsapi.StatsAPI;
+import de.devsnx.statsapi.manager.other.RankedType;
 
-import java.sql.Array;
-import java.util.*;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.LinkedHashMap;

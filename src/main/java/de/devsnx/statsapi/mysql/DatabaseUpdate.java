@@ -1,6 +1,6 @@
-package de.snx.statsapi.mysql;
+package de.devsnx.statsapi.mysql;
 
-import de.snx.statsapi.StatsAPI;
+import de.devsnx.statsapi.StatsAPI;
 
 import java.util.ArrayList;
 import java.util.List;

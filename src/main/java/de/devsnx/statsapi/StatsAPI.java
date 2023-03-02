@@ -1,13 +1,11 @@
-package de.snx.statsapi;
+package de.devsnx.statsapi;
 
-import de.snx.statsapi.commands.CommandStats;
-import de.snx.statsapi.commands.CommandTop;
-import de.snx.statsapi.events.PlayerEvents;
-import de.snx.statsapi.manager.FileManager;
-import de.snx.statsapi.manager.RankingManager;
-import de.snx.statsapi.manager.StatsManager;
-import de.snx.statsapi.mysql.SQLManager;
-import de.snx.statsapi.utils.Ranked;
+import de.devsnx.statsapi.commands.CommandStats;
+import de.devsnx.statsapi.events.PlayerEvents;
+import de.devsnx.statsapi.manager.FileManager;
+import de.devsnx.statsapi.manager.RankingManager;
+import de.devsnx.statsapi.manager.StatsManager;
+import de.devsnx.statsapi.mysql.SQLManager;
 import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,7 +15,6 @@ public class StatsAPI extends JavaPlugin {
     public static SQLManager sqlManager;
     public static FileManager fileManager;
     public static RankingManager rankingManager;
-    public static Ranked ranked;
     @Override
     public void onEnable() {
         instance = this;
@@ -34,9 +31,6 @@ public class StatsAPI extends JavaPlugin {
             if(getFileManager().getConfigFile().getStats() == true){
                 getCommand("stats").setExecutor(new CommandStats());
             }
-            if(getFileManager().getConfigFile().getTop() == true){
-                getCommand("top").setExecutor(new CommandTop());
-            }
             Bukkit.getPluginManager().registerEvents(new PlayerEvents(), this);
 
             Bukkit.getServer().getConsoleSender().sendMessage("§7|                  §aLoading success!              §7|");
@@ -45,12 +39,6 @@ public class StatsAPI extends JavaPlugin {
         }
         Bukkit.getServer().getConsoleSender().sendMessage("§7|                                                    §7|");
         Bukkit.getServer().getConsoleSender().sendMessage("§7+----------------------------------------------------+");
-        Bukkit.getScheduler().runTaskLater(getInstance(), new Runnable() {
-            @Override
-            public void run() {
-                ranked = new Ranked();
-            }
-        }, 60L);
     }
 
     @Override
@@ -89,7 +77,4 @@ public class StatsAPI extends JavaPlugin {
         return rankingManager;
     }
 
-    public static Ranked getRanked() {
-        return ranked;
-    }
 }

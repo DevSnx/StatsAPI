@@ -1,8 +1,8 @@
-package de.snx.statsapi.manager;
+package de.devsnx.statsapi.manager;
 
-import de.snx.statsapi.file.ConfigFile;
-import de.snx.statsapi.file.DatabaseFile;
-import de.snx.statsapi.file.MessagesFile;
+import de.devsnx.statsapi.file.ConfigFile;
+import de.devsnx.statsapi.file.DatabaseFile;
+import de.devsnx.statsapi.file.MessagesFile;
 
 public class FileManager {
 

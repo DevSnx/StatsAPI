@@ -1,9 +1,8 @@
-package de.snx.statsapi.commands;
+package de.devsnx.statsapi.commands;
 
-import de.snx.statsapi.StatsAPI;
-import de.snx.statsapi.manager.other.PlayerStats;
-import de.snx.statsapi.mysql.DatabaseUpdate;
-import de.snx.statsapi.utils.UUIDFetcher;
+import de.devsnx.statsapi.manager.other.PlayerStats;
+import de.devsnx.statsapi.mysql.DatabaseUpdate;
+import de.devsnx.statsapi.StatsAPI;
 import org.bukkit.Bukkit;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
@@ -32,21 +31,19 @@ public class CommandStats implements CommandExecutor {
             if (targetOnline != null) {
                 sendStats(p, (OfflinePlayer)targetOnline);
             } else {
-                UUIDFetcher.getUUID(args[0], new UUIDFetcher.Consumer<UUID>() {
-                    public void accept(UUID uuid) {
-                        if (uuid == null) {
-                            p.sendMessage(StatsAPI.getFileManager().getMessagesFile().getString("MESSAGE.STATS.NOPLAYER"));
-                        } else {
-                            if(StatsAPI.getStatsManager().hasPlayerStats(uuid)){
-                                OfflinePlayer opTarget = Bukkit.getOfflinePlayer(uuid);
-                                CommandStats.this.sendStats(p, opTarget);
-                            }else{
-                                p.sendMessage(StatsAPI.getFileManager().getMessagesFile().getString("MESSAGE.STATS.NOSTATS"));
-                                return;
-                            }
-                        }
+
+                UUID uuid = Bukkit.getOfflinePlayer(args[0]).getUniqueId();
+
+                if (uuid == null) {
+                    p.sendMessage(StatsAPI.getFileManager().getMessagesFile().getString("MESSAGE.STATS.NOPLAYER"));
+                } else {
+                    if(StatsAPI.getStatsManager().hasPlayerStats(uuid)){
+                        OfflinePlayer opTarget = Bukkit.getOfflinePlayer(uuid);
+                        CommandStats.this.sendStats(p, opTarget);
+                    }else{
+                        p.sendMessage(StatsAPI.getFileManager().getMessagesFile().getString("MESSAGE.STATS.NOSTATS"));
                     }
-                });
+                }
             }
         }
         return true;

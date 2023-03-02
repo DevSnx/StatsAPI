@@ -1,4 +1,4 @@
-package de.snx.statsapi.manager.other;
+package de.devsnx.statsapi.manager.other;
 
 public enum RankedType {
 

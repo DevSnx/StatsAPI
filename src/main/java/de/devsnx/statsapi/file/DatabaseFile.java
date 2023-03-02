@@ -1,4 +1,4 @@
-package de.snx.statsapi.file;
+package de.devsnx.statsapi.file;
 
 import org.bukkit.configuration.file.FileConfiguration;
 

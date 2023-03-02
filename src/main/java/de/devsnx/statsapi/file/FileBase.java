@@ -1,9 +1,9 @@
-package de.snx.statsapi.file;
+package de.devsnx.statsapi.file;
 
 import java.io.File;
 import java.io.IOException;
 
-import de.snx.statsapi.StatsAPI;
+import de.devsnx.statsapi.StatsAPI;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 

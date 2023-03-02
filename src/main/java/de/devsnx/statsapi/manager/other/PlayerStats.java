@@ -1,7 +1,8 @@
-package de.snx.statsapi.manager.other;
+package de.devsnx.statsapi.manager.other;
 
-import de.snx.statsapi.StatsAPI;
-import de.snx.statsapi.mysql.DatabaseUpdate;
+import de.devsnx.statsapi.mysql.DatabaseUpdate;
+import de.devsnx.statsapi.StatsAPI;
+
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

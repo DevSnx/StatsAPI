@@ -1,4 +1,4 @@
-package de.snx.statsapi.file;
+package de.devsnx.statsapi.file;
 
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -12,7 +12,6 @@ public class ConfigFile extends  FileBase{
     private void writeDefaults() {
         FileConfiguration cfg = getConfig();
         cfg.addDefault("CONFIG.COMMAND.STATS", true);
-        cfg.addDefault("CONFIG.COMMAND.TOP", true);
         cfg.options().copyDefaults(true);
         saveConfig();
     }

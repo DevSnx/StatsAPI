@@ -1,4 +1,4 @@
-package de.snx.statsapi.mysql;
+package de.devsnx.statsapi.mysql;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

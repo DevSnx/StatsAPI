@@ -1,4 +1,4 @@
-package de.snx.statsapi.mysql;
+package de.devsnx.statsapi.mysql;
 
 public abstract interface Callback<T> {
 	public abstract void accept(T paramT);

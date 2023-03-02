@@ -2,9 +2,8 @@ name: StatsAPI
 version: 1.3.1
 author: Snx
 description: a very Simple StatsAPI for MC 1.7 - 1.19
-
-main: de.snx.statsapi.StatsAPI
+api-version: 1.19
+main: de.devsnx.statsapi.StatsAPI
 
 commands:
   stats:
-  top:

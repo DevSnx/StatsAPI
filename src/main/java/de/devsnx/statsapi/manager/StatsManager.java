@@ -1,7 +1,7 @@
-package de.snx.statsapi.manager;
+package de.devsnx.statsapi.manager;
 
-import de.snx.statsapi.StatsAPI;
-import de.snx.statsapi.manager.other.PlayerStats;
+import de.devsnx.statsapi.StatsAPI;
+import de.devsnx.statsapi.manager.other.PlayerStats;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import java.sql.PreparedStatement;

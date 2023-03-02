@@ -1,10 +1,10 @@
-package de.snx.statsapi.mysql;
+package de.devsnx.statsapi.mysql;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import de.snx.statsapi.StatsAPI;
+import de.devsnx.statsapi.StatsAPI;
 
 public class AsyncHandler {
 	
