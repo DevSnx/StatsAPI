@@ -23,8 +23,6 @@ public class StatsManager {
         for (Player all : Bukkit.getOnlinePlayers()) {
             addPlayerToCache(all.getUniqueId(), all.getName());
         }
-
-
     }
 
     public boolean hasPlayerStats(UUID uuid){

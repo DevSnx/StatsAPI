@@ -20,8 +20,4 @@ public class ConfigFile extends  FileBase{
         return getConfig().getBoolean("CONFIG.COMMAND.STATS");
     }
 
-    public boolean getTop(){
-        return getConfig().getBoolean("CONFIG.COMMAND.TOP");
-    }
-
 }

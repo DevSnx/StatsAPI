@@ -6,6 +6,7 @@ import de.devsnx.statsapi.StatsAPI;
 import java.math.BigDecimal;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.text.DecimalFormat;
 import java.util.UUID;
 public class PlayerStats extends DatabaseUpdate {
 
@@ -99,8 +100,7 @@ public class PlayerStats extends DatabaseUpdate {
 
     public double getKD() {
         double d = getKills() / getDeaths();
-        double kd100 = d / 100.0D; //Now we're at 0.1d?
-        return new BigDecimal(d).setScale(3, BigDecimal.ROUND_HALF_UP).doubleValue();
+        return Math.round(d * 10) / 10;
     }
 
     public void setName(String name) {
@@ -224,8 +224,8 @@ public class PlayerStats extends DatabaseUpdate {
                 st.setInt(6, getBrokenblocks());
                 st.setInt(7, getOpenchests());
                 st.setInt(8, getSkillpoints());
-                st.setString(9, getUUID().toString());
-                st.setInt(10, getElo());
+                st.setInt(9, getElo());
+                st.setString(10, getUUID().toString());
                 StatsAPI.getSQLManager().executeUpdate(st);
             }
             rsCheck.close();
